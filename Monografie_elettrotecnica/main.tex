@@ -1,0 +1,51 @@
+\documentclass[openany]{book}
+
+\usepackage[a4paper,margin=4.72cm]{geometry}
+\usepackage{graphicx}
+\usepackage[version=3]{mhchem}
+\usepackage{siunitx} 
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[italian]{babel}
+\usepackage{stackengine}
+\usepackage{graphicx,ifthen}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{upgreek}
+\usepackage{bm}
+\usepackage{braket}
+\usepackage{float}
+\usepackage{fancyhdr}
+\usepackage{appendix}
+
+\makeatletter
+\renewcommand{\@chapapp}{Esperienza}
+\makeatother
+
+\setcounter{tocdepth}{0}
+\makeindex
+\title{\textbf{ESPERIMENTAZIONI II: \\ MONOGRAFIE \\ ELETTROTECNICA}}
+\author{Manuel Gabriele Moretti}
+\date{Settembre 2024}
+
+\begin{document}
+
+\maketitle
+\pagenumbering{roman}
+\tableofcontents
+\newpage
+
+\pagenumbering{arabic}
+\include{Esperienza 1 - Lampadina}
+\include{Esperienza 2 - Ciclo di isteresi}
+\include{Esperienza 3 - Circuiti RC}
+\include{Esperienza 4 - Circuiti RLC}
+\include{Esperienza 5 - Diodi}
+\include{Esperienza 6 - BJT}
+\include{Esperienza 7 - Amplificatore}
+\include{Esperienza 8 - Cella solare}
+
+\end{document}

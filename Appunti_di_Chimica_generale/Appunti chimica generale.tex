@@ -1,0 +1,63 @@
+\documentclass[openany]{book}
+
+\usepackage[a4paper,margin=4.72cm]{geometry}
+
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{siunitx}
+\usepackage[version=3]{mhchem}
+\usepackage{natbib}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[italian]{babel}
+\usepackage{stackengine}
+\usepackage{graphicx,ifthen}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{upgreek}
+\usepackage{bm}
+\usepackage{braket}
+\usepackage{float}
+\usepackage{cancel}
+\usepackage{anyfontsize}
+\usepackage{scalefnt}
+
+\newtheorem{lem}{Lemma}
+\newtheorem{axiom}{Assioma}
+\newtheorem{defn}{Definizione}
+\newtheorem{obs}{Osservazione}
+\newtheorem{ex}{Esempio}
+\newtheorem{notz}{Notazione}
+\newtheorem{corl}{Corollario}
+\newtheorem{teo}{Teorema}
+\theoremstyle{remark}
+\newtheorem{caso}{Caso}
+
+\numberwithin{lem}{chapter}
+\numberwithin{axiom}{chapter}
+\numberwithin{teo}{chapter}
+\numberwithin{defn}{chapter}
+\numberwithin{obs}{chapter}
+\numberwithin{ex}{chapter}
+\numberwithin{equation}{chapter}
+
+\makeindex
+\title{\textbf{APPUNTI DI CHIMICA GENERALE}}
+\author{Manuel Gabriele Moretti}
+\date{Giugno 2024}
+
+\begin{document}
+
+\maketitle
+\pagenumbering{roman}
+\tableofcontents
+\newpage
+
+\pagenumbering{arabic}
+\include{Capitolo 1 - Atomi}
+\include{Capitolo 2 - Legame}
+\include{Capitolo 3 - Termodinamica}
+\include{Capitolo 4 - Cinetica}
+
+\end{document}

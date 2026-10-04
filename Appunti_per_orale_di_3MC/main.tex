@@ -1,0 +1,498 @@
+\documentclass{article}
+
+\usepackage{graphicx}
+\usepackage[version=3]{mhchem}
+\usepackage{siunitx} 
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[italian]{babel}
+\usepackage{stackengine}
+\usepackage{graphicx,ifthen}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{upgreek}
+\usepackage{bm}
+\usepackage{braket}
+\usepackage{float}
+\usepackage{cancel}
+
+\newtheorem{axiom}{Assioma}
+\newtheorem{defn}{Definizione}
+\newtheorem{obs}{Osservazione}
+\newtheorem{ex}{Esempio}
+\newtheorem{notz}{Notazione}
+\newtheorem{corl}{Corollario}
+\newtheorem{teo}{Teorema}
+\theoremstyle{remark}
+\newtheorem{caso}{Caso}
+
+\makeindex
+\title{\textbf{APPUNTI PER ORALE DI MMMC}}
+\author{Manuel Gabriele Moretti}
+\date{Settembre 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Meccanica lagrangiana}
+\subsection{Spazio delle configurazioni per un sistema di punti soggetti a vincoli posizionali, coordinate lagrangiane e deduzione delle equazioni di Eulero-Lagrange (EEL)}
+\begin{itemize}
+    \item Definizione dello spazio delle configurazioni;
+    \item \textit{definizione dei vincoli};
+    \item coordinate lagrangiane come parametrizzazione locale delle coordinate $x_A^i$, le quali soddisfano identicamente le equazioni di vincolo e la matrice jacobiana del cambiamento di coordinate ha rango massimo;
+    \item l'obiettivo è sostituire l'equazione $ma=F+\Phi$;
+    \item calcolo dell'energia cinetica $T$ di un sistema di $N$ punti materiali a partire dalla definizione di velocità in coordinate lagrangiane;
+    \item ipotesi sui vincoli: su di essi non c'è attrito, ovvero le reazioni vincolari compiono lavoro nullo per qualsiasi spostamento infinitesimo $\bm{u_A}$;
+    \item moltiplicare scalarmente per $u_A$ l'equazione $m_Aa_A=F_A+\Phi_A$, e supporre che le forze $F_A$ siano conservative in modo da poterle scrivere come il gradiente di un potenziale $U$.
+\end{itemize}
+\subsection{Leggi di conservazione nei sistemi lagrangiani autonomi: conservazione dell'energia e teorema di Noether.}
+\begin{itemize}
+    \item Definizione di integrale primo;
+    \item \textit{definizione di energia generalizzata};
+    \item \textit{dipendenza di $L$ dalle coordinate $(q^\lambda,\Dot{q}^\lambda)$};
+    \item \textit{definizione di momento coniugato e caso per una coordinata ciclica};
+    \item definizione di simmetria per $L$;
+    \item implicazioni di simmetria: l'immagine di una curva soluzione delle EEL sotto il flusso $\phi$ è ancora una soluzione delle EEL;
+    \item enunciato teorema di Noether;
+    \item dimostrazione classica e variazionale.
+\end{itemize}
+\subsection{Integrali primi per studio delle soluzioni delle EEL}
+\begin{itemize}
+    \item Definizione di integrale primo;
+    \item definizione di energia generalizzata;
+    \item \textit{fogliettamento invariante su $TQ$};
+    \item equazione di Weierstrass per sistemi con $n=1$ e il suo studio;
+    \item condizioni per ottenere un'equazione di Weierstrass per sistemi con $n=2$ e il suo studio;
+    \item esempio con potenziale centrale.
+\end{itemize}
+\subsection{Principio di azione stazionaria ed EEL}
+\begin{itemize}
+    \item Definizione di azione;
+    \item obiettivo: mostrare che le curve di moto soluzione delle EEL sono le curve che rendono stazionaria l'azione;
+    \item definizione di deformazione di una curva;
+    \item condizione di stazionarietà dell'azione;
+    \item dimostrazione del principio di azione stazionaria;
+    \item implicazione della validità dell'inverso dell'enunciato.
+\end{itemize}
+\subsection{Equilibrio, stabilità, teorema di Lyapunov e criterio di Lejeune-Dirichlet}
+\begin{itemize}
+    \item condizioni affinché una curva costante $q^\lambda_0=q^\lambda_0(t;q_0^\mu,u_0^\mu)$ sia soluzione delle EEL;
+    \item il sistema può restare in quiete solo se viene posto con velocità nulla in una configurazione che sia stazionaria per il potenziale $U$ (configurazione di equilibrio);
+    \item definizione di punto critico di un campo vettoriale;
+    \item \textit{teorema di unicità di Cauchy applicato ad un punto critico};
+    \item definizione di punto di equilibrio stabile e \textit{comportamento delle soluzioni per dati iniziali vicini ad un punto critico};
+    \item funzione di Lyapunov e 
+    \item teorema di stabilità di Lyapunov e dimostrazione;
+    \item criterio di Lejeune-Dirichlet come applicazione del teorema a sistemi autonomi descritti dal campo $X_L$;
+    \item Se $Hess(U)$ è definita negativa, l'equilibrio è stabile; se $Hess(U)$ ha almeno un autovalore positivo. l'equilibrio è instabile; se $Hess(U)$ ha tutti gli autovalori negativi meno uno nullo, non si può determinare con questi metodi la natura dell'equilibrio.
+\end{itemize}
+\subsection{Linearizzazione delle EEL intorno ad una configurazione di equilibrio stabile}
+\begin{itemize}
+    \item obiettivo: ottenere delle soluzioni approssimate delle EEL per avere un'approssimazione del moto del sistema intorno ad una configurazione di equilibrio stabile;
+    \item ipotesi: la configurazione di equilibrio è $(q^\lambda=q^\lambda_*,u^\lambda=u^\lambda_*=0)$ e i termini di ordine superiore a $(q^\lambda-q^\lambda_*)$ e $u^\lambda$ sono trascurabili in quanto se sono piccoli per i dati iniziali lo rimarranno per tempi futuri come garantito dall'ipotesi di stabilità:
+    \item sviluppo delle EEL intorno a $(q^\lambda_*=0,0)=(0,0)$ dopo aver traslato l'origine in $q^\lambda_*$;
+    \item calcolo delle derivate parziali in $(0,0)$, sostituzioni delle EEL e troncamento di $L$ in $L_{LIN}$;
+    \item definizione e proprietà della matrice $\Omega=M^{-1}K$;
+    \item equazioni del moto in forma normale: $\Ddot{q}^\lambda=\Omega^\lambda_\mu q^\mu$;
+    \item diagonalizzazione di $\Omega$, equazioni del moto in forma normale: $\Ddot{Q}^\lambda=-\omega^2_{(\mu)} Q^\mu$ e definizione delle pulsazioni caratteristiche;
+    \item ricerca degli autovalori tramite $\det(\Omega+\omega^2I)=\det(K+\omega^2M)=0$;
+    \item conclusioni sulla natura del moto e generalizzazione delle curve di Lissajous.
+\end{itemize}
+
+\section{Meccanica hamiltoniana}
+\subsection{Trasformazione di Legendre e deduzione delle equazioni di Hamilton dalle EEL}
+\begin{itemize}
+    \item EEL come evoluzione temporale di $q^\mu$ e dei momenti coniugati (MC);
+    \item se $L$ è quadratica in $u^\mu$, i MC dipendono linearmente da $u\mu$;
+    \item la corrispondenza tra MC e $u^\mu$ è invertibile se $L$ è regolare, quindi il moto del sistema e descrivibile indifferentemente da $(q^\mu,u^\mu)$ e $(q^\mu,\partial L/\partial u^\mu)$;
+    \item i MC rappresentano una forma lineare su $T^*Q$ che associa ad ogni vettore tangente a $Q$ il valore di $2T$;
+    \item implicazione della descrizione del sistema tramite $(q^\mu,\partial L/\partial u^\mu)$: si lavora in uno spazio diverso, $T^*Q$;
+    \item definizione vettori della base di $T^*Q$ con $dq^\lambda$ in quanto $\langle dq^\mu,\partial/\partial q^\lambda\rangle=\delta^\lambda_\mu$;
+    \item le componenti di un generico covettore su $T^*Q$ sono $(q^\mu,p_\mu)$;
+    \item la relazione $p_\mu=\partial L/\partial u^\mu$ non è la definizione delle coordinate $p_\mu$, bensì è la rappresentazione di una mappa $\Phi_L:TQ\to T^*Q$: la mappa di Legendre;
+    \item applicazione di $\Phi_L$ alle EEL: ai membri sinistri si ha $\dot{q}^\mu=\cdots$ e $\dot{p}_\mu=\cdots$;
+    \item si denota con $u^\lambda=U^\lambda(q^\mu,p_\mu)$ la rappresentazione delle mappa di Legendre inversa $\Phi_L^{-1}$ che soddisfa l'identità
+    \begin{equation}
+        \frac{\partial L}{\partial u^\mu}\circ\Phi_L^{-1}=\frac{\partial L}{\partial u^\mu}\bigg|_{u^\lambda=U^\lambda(q^\mu,p_\mu)}\equiv p_\mu;
+    \end{equation}
+    \item le EEL sono
+    \begin{equation}
+        \begin{cases}
+            \dot{q}^\mu=U^\mu \\
+            \dot{p}_\mu=\dfrac{\partial L}{\partial q^\mu}\circ\Phi_L^{-1};
+        \end{cases}
+    \end{equation}
+    \item definizione di $\Tilde{L}=L\circ\Phi_L^{-1}$ e calcolo di $\partial\Tilde{L}/\partial q^\mu$;
+    \item definizione di $H$ come pull-back su $T^*Q$ di $\mathcal{H}$: $H=p_\nu U^\nu-\Tilde{L}$;
+    \item equazioni di Hamilton come immagini delle EEL sotto la mappa di Legendre, la quale connette $L$ e $H$.
+\end{itemize}
+\subsection{Parentesi di Poisson, campi vettoriale hamiltoniani, commutatore, coordinate e parentesi di Poisson canoniche}
+\begin{itemize}
+    \item Derivata di una funzione $f:T^*Q\to\mathbb{R}$ come $\dot{f}=X_H(f)$ su una curva di moto;
+    \item se si cambiano di posto $H$ e $f$ il risultato cambia solo di segno;
+    \item associazione ad ogni funzione $f$ un campo $X_f$ tale che $X_f(g)=-X_g(f)$: definizione di campo hamiltoniano;
+    \item dato che $X_f=0$ se $f=costante$, ovvero se $df=0$, si può vedere il campo $X_f$ come l'applicazione di una forma lineare $\mathcal{P}$ a $df$: $X_f=\mathcal{P}(df)$;
+    \item $\mathcal{P}$ definisce una forma bizxclineare sui covettori: $\langle dg,X_f\rangle=\langle dg,\mathcal{P}(df)\rangle=X_f(g)$, per ogni coppia di funzioni $f,g$;
+    \item definizione di questa operazione come le parentesi di Poisson: ${f,g}$ e le sue proprietà;
+    \item scrittura degli integrali primi tramite le parentesi di Poisson;
+    \item parentesi di Poisson canoniche;
+    \item vantaggio della meccanica hamiltoniana: un maggior numero di coordinate per descrivere il sistema;
+    \item esempio di trasformazione non naturale su $TQ$ e conclusioni sul campo $X_L$: questo continua a essere descritto dalle EEL solo se la trasformazione di coordinate è naturale;
+    \item esempio di trasformazione canonica su $T^*Q$ e conclusioni sul campo $X_H$: questo viene continua a essere descritto dalle equazioni di Hamilton solo se la trasformazione è canonica, la quale non è necessariamente naturale. 
+\end{itemize}
+\subsection{Forma di Liouville e simplettica, campi hamiltoniani come generatori di flussi di simplettomorfismi e teorema di Arnold}
+\begin{itemize}
+    \item Il tensore di Poisson è una forma bilineare antisimmetrica che in ogni sistema di coordinate naturali è rappresentato dalla matrice di dimensione $2n\times2n$
+    % Requires: \usepackage{amsmath}
+    \begin{equation}
+        \mathcal{P} = 
+        \begin{pmatrix}
+        \mathbf{0}_n & \mathbb{I}_n \\
+        -\mathbb{I}_n & \mathbf{0}_n
+        \end{pmatrix};
+    \end{equation}
+    \item obiettivo: determinare se esiste una relazione intrinseca tra il tensore di Poisson e la struttura di spazio $T^*Q$, dato che è quest'ultima a definire univocamente le coordinate naturali;
+    \item su ogni spazio cotangente esiste un particolare campo di covettori: la 1-forma di Liouville;
+    \item per costruirla si considera la proiezione $\pi:T^*Q\to Q$ che associa ad ogni covettore il punto in cui esso è applicato; si applica quindi la mappa tangente $T\pi:T(T^*Q)\to TQ$ che associa ad ogni vettore tangente a $T^*Q$ un vettore tangente a $TQ$;
+    \item la 1-forma di Liouville $\theta$ è definita così: per ogni vettore tangente $\bm{X}$ di $T^*Q$ nel punto $\bm{(q,p)}$ si ha
+    \begin{equation}
+        \langle\theta(\bm{p}),\bm{X}\rangle=\langle\bm{p},T\pi(\bm{X})\rangle;
+    \end{equation}
+    \item in coordinate naturali la 1-forma di Liouville ha espressione $\theta=p_\mu dq^\mu$;
+    \item quindi la 1-forma di Liouville è intrinsecamente associata allo spazio $T^*Q$ in quanto è definita a partire da elementi sempre presenti per ogni spazio $T^*Q$;
+    \item il differenziale della 1-forma di Liouville, in ogni sistema di coordinate naturali, è $d\theta=dp_\mu\wedge dq^\mu=\omega$: la forma simplettica, una particolare 2-forma chiusa ed esatta;
+    \item la matrice che rappresenta $\omega$ in coordinate è l'inversa di quella che rappresenta il tensore di Poisson: ecco la relazione tra $\mathcal{P}$ e lo spazio $T^*Q$;
+    \item infatti, $\forall f:T^*Q\to\mathbb{R}$ e $\forall Y$ campo vettoriale su $T^*Q$ vale $\omega(X_f,Y)=\omega(\mathcal{P}(df),Y)=-\langle df,Y\rangle$ e per ogni coppia di funzioni $f,g$ vale $\omega(X_f,X_g)=\omega(\mathcal{P}(df),\mathcal{P}(dg))=\langle-df,\mathcal{P}(dg)\rangle=\{f,g\}$;
+    \item tutte le coordinate che conservano la forma simplettica sono dette coordinate canoniche: $dp_\mu\wedge dq^\mu=dP_\mu\wedge dQ^\mu$;
+    \item sapendo che per ogni campo hamiltoniano vale che $i_X\omega=-df$, si considera un flusso di trasformazioni $\phi_\epsilon$ su $T^*Q$, il flusso è canonico se e solo se $\phi_\epsilon^*\omega=\omega,\,\forall\epsilon$;
+    \item dalla definizione di derivata di Lie si ha che $\mathcal{L}_X(\omega)=\epsilon^{-1}(\phi_\epsilon^*\omega-\omega)=0,\,\forall\epsilon$, dato che la forma simplettica è esatta: il flusso di qualsiasi campo hamiltoniano è canonico, ovvero conserva la forma simplettica, e i campi hamiltoniani sono generatori di flussi canonici;
+    \item se una funzione $f$ è in involuzione con l'hamiltoniana allora $X_f$ genera una simmetria per le equazioni di Hamilton, il corrispettivo delle simmetrie di Noether:
+    \item in $TQ$ i generatori di simmetrie sono i campi $X$ tali che
+    \begin{enumerate}
+        \item $\hat{X}$ sono rilevamenti tangenti;
+        \item $\hat{X}(L)=0$;
+    \end{enumerate}
+    \item in $T^*Q$ i generatori di simmetrie sono i campi $X$ tali che
+    \begin{enumerate}
+        \item $X$ è hamiltoniano;
+        \item $X(H)=0$; 
+    \end{enumerate}
+    \item si consideri un sistema con $n$ DOF e $n$ integrali primi: gli insiemi di livello comuni agli integrali primi sono sottovarietà $\Sigma$ di dimensione $2n-n=n$ (quando vale il teorema del valore regolare), le quali sono invarianti per un flusso di un campo hamiltoniano;
+    \item tutte le funzioni $f_\mu$ sono in involuzione fra loro per ipotesi, un ulteriore ipotesi: sono anche in involuzione fra loro $\{f_\mu,f_\nu\}=0$;
+    \item questo implica che i campi $X_{f_\nu}$ sono tangenti alle sottovarietà $\Sigma$, ovvero che i campi commutano fra loro;
+    \item ogni $\Sigma$ è diffeomorfa al prodotto cartesiano di $p$ rette e $n-p$ circonferenze: se $\Sigma$ sono compatte allora sono diffeomorfe al toro $T^n$, detto toro di Arnold;
+    \item su ogni toro è possibile definire un sistema di coordinate tali che ciascuna coordinata $\alpha^\mu$ corrisponde alla coordinata angolare di uno dei cerchi il cui prodotto cartesiano definisce il toro: dato un generico punto sul toro le $n$ curve coordinate passanti per esso sono $\gamma_{(\mu)}:t\to(\alpha^1_0,...,\alpha^\mu_0+t,...,\alpha^n_0)$;
+    \item parametrizzato il toro si trovano le coordinate azione come
+    \begin{equation}
+        I_{(\mu)}=\frac{1}{2\pi}\oint_{\gamma_{(\mu)}} p_\mu dq^\mu;
+    \end{equation}
+    \item in queste nuove coordinate le equazioni di Hamilton sono
+    \begin{equation}
+    \begin{cases}
+        \dot{\alpha}^\mu=\dfrac{dH}{dI_\mu} \\
+        \dot{I_\mu}=0,
+    \end{cases}
+    \end{equation}
+    che integrate danno $\alpha^\mu=\omega^\mu|_{I_\mu=I_\mu(0)} t+\alpha_0^\mu$ e $I_\mu=I_0^\mu$;
+    \item queste equazioni descrivono delle ellissi sul toro, che si chiudono solo se le $\omega^\mu$ sono razionalmente dipendenti, altrimenti riempiono densamente il toro;
+    \item Teorema di Arnold: Per un sistema hamiltoniano con $n$ DOF che ammetta $n$ costanti del moto indipendenti ed in involuzione, la soluzione generale delle equazione del moto si può ottenere mediante quadrature ed inversioni di funzioni. Questi sistemi sono detti completamente integrabili.
+\end{itemize}
+\subsection{Trasformazioni canoniche, funzioni generatrici e variabili azione-angolo per l'oscillatore armonico unidimensionale}
+\begin{itemize}
+    \item Una trasformazione di coordinate canonica è una trasformazione che conserva la forma simplettica $\omega$: queste si possono costruire mediante le funzioni generatrici;
+    \item un flusso di trasformazioni $\phi_\epsilon$ su $T^*Q$ conserva la forma simplettica se e solo se $\phi_\epsilon^*\omega=\omega,\,\forall\epsilon$;
+    \item poiché $\omega=d\theta$, si ha che $d(\phi^*\theta-\theta)=0$ è una forma chiusa dato che poiché $d\circ d\equiv0$, pertanto si può scrivere $\phi^*\theta-\theta=dS$;
+    \item questa relazione in coordinate si scrive come $p_\mu dq^\mu-P_\mu dQ^\mu=dS$;
+    \item per ricavare una trasformazione canonica a partire da $S$ si deve usare un "trucco": definire $S$ come una funzione dipendente da metà delle coordinate vecchie $q^\mu$ e metà delle coordinate nuove $Q^\mu\Rightarrow$ lemma su coordinate indipendenti nell'intersezione dei domini di due sistemi di coordinate;
+    \item quindi ora si ha
+    \begin{equation}
+        p_\mu dq^\mu-P_\mu dQ^\mu=\frac{\partial S}{\partial q^\mu}dq^\mu+\frac{\partial S}{\partial Q^\mu}dQ^\mu;
+    \end{equation}
+    \item da ciò si ricava $p_\mu=\partial S/\partial q^\mu$ e $P_\mu=-\partial S/\partial Q^\mu$: si ricava il cambiamento di coordinate $q=q(Q,P)$ e $p=(Q,P)$;
+    \item il vantaggio è che non si trova la funzione generatrice a partire da una trasformazione canonica ma il contrario;
+    \item pertanto il metodo è:
+    \begin{enumerate}
+        \item considerare una qualsiasi funzione generatrice di prima specie $S=(q,Q)$, con la sola condizione che la matrice $[\partial^2S/\partial q^\mu Q^\nu]$ abbia determinante non nullo;
+        \item scrivere il sistema di $p_\mu$ e $P_\mu$ e si ricava il cambiamento di coordinate;
+    \end{enumerate}
+    \item \textit{metodo per la composizione di due funzioni generatrici}.
+\end{itemize}
+\subsection{Forma di Poincaré-Cartan e deduzione variazionale delle equazioni di Hamilton}
+\begin{itemize}
+    \item Le EEL possono essere ricavate tramite un principio variazionale: il principio di azione stazionaria;
+    \item il funzionale d'azione è definito come l'integrale del pull-back della 1-forma $Ldt$ su una curva $j^1\gamma:\mathbb{R}\to TQ\times\mathbb{R}$ prolungamento su $TQ$ di una curva $\gamma:t\to Q$ soluzione delle EEL: $A[\hat{\gamma}]=\int_{t_0}^{t_1}(j^1\gamma)^*(Ldt)$, $L=L(q^\mu,\dot{q}^\mu,t)$;
+    \item tutte e le sole curve che sono soluzione delle EEL rendono l'azione stazionaria;
+    \item obiettivo: determinare se esiste un principio variazionale per le equazioni di Hamilton;
+    \item si definisce la 1-forma di Poincaré-Cartan: $\theta_H=p_\mu dq^\mu-H(q^\mu,p_\mu,t)dt$ su $T^*Q\times\mathbb{R}$ e si effettua l'immagine della curva $j^1\gamma$ sotto la mappa di Legendre ``estesa'' $\Tilde{\Phi}_L:TQ\times\mathbb{R}\to T^*Q\times\mathbb{R}$;
+    \item quindi
+    \begin{equation}
+        \Tilde{\Phi}_L(j^1\gamma)^*\theta_H=p_\mu\dot{q}^\mu dt-H(q^\mu,p_\mu)dt=(j^1\gamma)^*(Ldt)
+    \end{equation}
+    \item si definisce il funzionale d'azione in $T^*Q\times\mathbb{R}$ come
+    \begin{equation}
+        A[\Tilde{\gamma}]=\int_{t_0}^{t_1}\Tilde{\gamma}^*\theta_H,\quad\Tilde{\gamma}:\mathbb{R}\to T^*Q\times\mathbb{R};
+    \end{equation}
+    \item definizione della variazione $\Tilde{\gamma}_\epsilon:t\to(q^\mu(t)+\epsilon\delta q^\mu(t),p_\mu(t)+\epsilon\delta p_\mu(t),t)$, con $\delta q^\mu(t_0)=\delta q^\mu(t_1)=0$ e condizione di stazionarietà per l'azione;
+    \item la condizione di stazionarietà è equivalente alle equazioni di Hamilton: le curve estremali dell'azione sono tutte e le sole soluzioni delle equazioni di Hamilton per l'hamiltoniana che compare nella forma di Poincaré-Cartan;
+    \item \textit{la forma di Poincaré-Cartan rimane invariata per trasformazioni di coordinate canoniche puntuali, ma non per quelle non puntuali (questo si può notare in quanto in questa forma è presente la forma di Liouville che ha esattamente questa proprietà).}
+\end{itemize}
+\subsection{Trasformazioni canoniche dipendenti dal tempo ed equazione di Hamilton-Jacobi}
+\begin{itemize}
+    \item Qual è il più generale cambiamento di coordinate $q^\mu=q^\mu(Q^\nu,P_\nu,t),\,p_\mu=q^\mu(Q^\nu,P_\nu,t)$ tale che le curve estremali dell'azione $A[\Tilde{\gamma}]=\int_{t_0}^{t_1}\Tilde{\gamma}^*\theta_H$ nelle nuove coordinate $(Q,P)$ sono ancora descritte dalle equazioni di Hamilton ed eventualmente da una hamiltoniana diversa?;
+    \item le soluzione delle equazioni di Hamilton per un hamiltoniana $K$ sono le estremali dell'azione $\int_{t_0}^{t_1}\Tilde{\gamma}^*\theta_K$: queste lo sono anche per $\int_{t_0}^{t_1}\Tilde{\gamma}^*\theta_H$ se $\theta_H=\theta_K+dS$;
+    \item se si suppone $S=S(q,Q)$ si ha
+    \begin{equation}
+    p_\mu dq^\mu-H(q,p,t)=P_\mu dQ^\mu-K(Q,P,t)+\frac{\partial S}{\partial q^\mu}dq^\mu+\frac{\partial S}{\partial Q^\mu}dQ^\mu+\frac{\partial S}{\partial t}dt;
+    \end{equation}
+    \item da cui si ricava
+    \begin{equation}
+        \begin{cases}
+            p_\mu=\dfrac{\partial S}{\partial q^\mu} \\
+            P_\mu=-\dfrac{\partial S}{\partial Q^\mu} \\
+            K=H+dS;
+        \end{cases}
+    \end{equation}
+    \item se si trova una soluzione dell'equazione di Hamilton-Jacobi $H(q,p,t)+dS(q,Q,t)=0$ (un integrale completo), allora si può ricavare un cambiamento di coordinate dipendente dal tempo $q^\mu=q^\mu(Q^\nu,P_\nu,t),\,p_\mu=p_\mu(Q^\nu,P_\nu,t)$ per cui le nuove coordinate $Q^\mu$ e $P_\mu$ sono costanti del moto per il sistema definito da $H$;
+    \item le equazioni di Hamilton per il medesimo sistema definito dall'hamiltoniana $K\equiv0$ sono $\dot{Q}^\mu=0$ e $\dot{P}_\mu=0$: sono direttamente integrabili;
+    \item pertanto il metodo di Hamilton-Jacobi è:
+    \begin{enumerate}
+        \item trovare un integrale completo;
+        \item ricavare i cambiamento di coordinate $(q,p)\to(Q,P)$;
+        \item convertire il dato iniziale $(q(0),p(0))\to(Q(0),P(0))$ dato che l'integrale delle nuove equazioni di Hamilton è $Q^\mu(t)=Q^\mu(0),\,P_\mu(t)=P_\mu(0)$;
+        \item l'espressione della curva di moto in $(Q,P)$ è
+        \begin{equation}
+            \begin{cases}
+                q(t)=q(Q(0),P(0),t) \\
+                p(t)=p(Q(0),P(0),t);
+            \end{cases}
+        \end{equation}
+    \end{enumerate}
+    \item \textit{integrale di $\theta_H=\theta_K+dS$: il valore dell'integrale completo $S$ lungo una curva di moto è uguale al valore dell'azione.}
+\end{itemize}
+\newpage
+\section{Meccanica statistica}
+\subsection{Microstati, macrostati, macrostato di Maxwell-Boltz-mann (MMB) ed equilibrio}
+\begin{itemize}
+    \item \textit{Definizione di: spazio delle fasi della singola molecola $\mathcal{F}$, microstato, spazio globale delle fasi $\Gamma$, osservabili microscopiche $F:\Gamma\to\mathbb{R}$, osservabili macroscopiche come media sulle $N$ particelle di funzioni $f:\mathcal{F}\to\mathbb{R}$, macrostato;}
+    \item ipotesi ergodica e obiettivo: determinare il macrostato di equilibrio;
+    \item Problema: se il sistema è isolato l'energia è una costante del moto, ma se vale l'ipotesi ergodica non possono esistere costanti del moto $\Rightarrow$ soluzione: il sistema è ergodico sull'ipersuperficie di livello dell'energia (su cui giacciono le traiettorie), la quale è l'unica costante del moto;
+    \item Problema: con questa soluzione non si può descrivere il caso più semplice di un sistema di particelle non interagenti, in questo caso le singole hamiltoniane sono tutte costanti del moto, le quali però non possono esistere $\Rightarrow$ soluzione: si suppone l'esistenza di un'interazione tra le molecole a corto raggio, la quale può essere trascurata nel calcolo dell'energia totale (non risolve veramente il problema);
+    \item ricerca del macrostato di equilibrio tramite approccio combinatorio
+    \begin{enumerate}
+        \item dividere $\mathcal{F}$ in celle di volume $\Omega$, quindi $\Gamma=\mathcal{F}\times\mathcal{F}$ avrà volume $\Omega^N$;
+        \item approssimare tutte le funzioni definite su $\Gamma$ con funzioni costanti su ogni cella: $\Tilde{f}=N^{-1}\sum_{A=1}^Nf(q^\mu_A,p_\mu^A)\approx N^{-1}\sum_in_if_i$;
+        \item in questo modo ogni macrostato è determinato dalla successione $\{n_i\}$ e il volume di un macrostato $\sigma$ è
+        \begin{equation}
+            \text{Vol}(\sigma)=\frac{N!}{n_1!\cdots n_m!}\Omega^N=G\cdot\Omega^N;
+        \end{equation}
+        \item si vuole quindi trovare la successione $\{n_i\}$ per cui $G$ è massimo;
+    \end{enumerate}
+    \item si considera il logaritmo $\log(\text{Vol}(\sigma))$ e si approssima con Stirling $n!\approx n^ne^n$ tenendo conto dei due vincoli $\sum_{i}{n_i}=N$ e $\sum_{i}{n_iE_i}=E$ (\textit{i valori $E_i$ sono le funzioni costanti che approssimano il valore di $h:\mathcal{F}\to\mathbb{R}$});
+    \item per trovare il massimo della funzione si usa il metodo dei moltiplicatori di Lagrange;
+    \item la $\{n_i\}$ che caratterizza il MMB $\sigma_{MB}$ è
+    \begin{equation}
+        \frac{n_i}{N}=\frac{e^{-\beta E_i}}{\sum_{j}{e^{-\beta E_j}}}=\frac{e^{-\beta E_i}}{Z(\beta)},
+    \end{equation}
+    con $Z(\beta)$ detta funzione di partizione;
+    \item il valore di una funzione $f:\mathcal{F}\to\mathbb{R}$ nel MMB è
+    \begin{equation}
+        \langle f\rangle_{MB}=\frac{\sum_{i}f_ie^{-\beta E_i}}{\sum_{j}{e^{-\beta E_j}}};
+    \end{equation}
+    \item in particolare per la funzione $h$ si ha
+    \begin{equation}
+        \langle h\rangle_{MB}=\frac{\sum_{i}E_ie^{-\beta E_i}}{\sum_{j}{e^{-\beta E_j}}}=-\frac{\partial}{\partial \beta}(\log{Z(\beta)})\Rightarrow E=-N\langle h\rangle_{MB};
+    \end{equation}
+    \item affinché il volume del MMB sia massimo deve essere che $\frac{\text{Vol}(\sigma)}{\text{Vol}(\sigma_{MB})}\to0$ per $N\to\infty$, per dimostrarlo si sviluppa $\log{\text{Vol}(\sigma)}$ per potenze di una variazione $\delta p_i$ per infine trovare che
+    \begin{equation}
+        \log{\frac{\text{Vol}(\sigma)}{\text{Vol}(\sigma_{MB})}}\propto-N\Rightarrow\frac{\text{Vol}(\sigma)}{\text{Vol}(\sigma_{MB})}\xrightarrow{N\to\infty}0.
+    \end{equation}
+\end{itemize}
+\subsection{Calcolo energia media e entropia di un gas perfetto nel MMB}
+\begin{itemize}
+    \item L'entropia è una proprietà del macrostato $\sigma$ in cui è il sistema: corrisponde alla probabilità di trovare il sistema in un certo macrostato ed è definita come $S=k\log{\text{Vol}(\sigma)}=-k\sum_{i}n_i\log{n_i}+C$: nel MMB vale 
+    \begin{equation}
+        S=kN\log{Z(\beta)}+b\beta N\sum\nolimits_{i}\frac{E_ie^{-\beta E_i}}{Z(\beta)}=k\beta N\log{Z}+k\beta U\footnote{Il conto completo è in appendice \ref{cap:appendice}},
+    \end{equation}
+    da cui
+    \begin{equation}
+        \frac{\partial U}{\partial S}=\frac{1}{T}=\frac{1}{k\beta}\Rightarrow\beta=\frac{1}{kT};
+    \end{equation}
+    \item per un gas perfetto l'hamiltoniana è $h=(2m)^{-1}(p_1^2+p_2^2+p_3^2)$ e 
+    \begin{equation}
+        Z=\int_{\mathcal{F}}e^{\frac{-1}{2mkT}(p_1^2+p_2^2+p_3^2)}dq^1\cdots dp_3=V\int_{\mathcal{F}}e^{\frac{-p^2}{2mkT}}dp=V\bigg(\frac{2\pi m}{\beta}\bigg)^\frac{3}{2},
+    \end{equation}
+    da cui $\log{Z}=\log{V}-\frac{3}{2}\log{\beta}+C'$ e quindi
+    \begin{equation}
+        \begin{cases}
+            U=-N\dfrac{\partial}{\partial \beta}(\log{Z})=\dfrac{3}{2}kNT \\
+            A=-knT\log{Z}=-knT(\log{V}+\dfrac{3}{2}\log{T}+C).
+        \end{cases}
+    \end{equation}
+\end{itemize}
+\subsection{Primo principio della Termodinamica, variabili di controllo e risposta, potenziali termodinamici ed equazioni di stato}
+\begin{itemize}
+    \item L'equilibrio termodinamico è descritto da un'equazione che lega le osservabili macroscopiche del sistema: il primo principio della Termodinamica $TdS-pdV=dU$;
+    \item lo stato del sistema è definito in uno spazio quadridimensionale dalle coordinate $(p,V,S,T)$ e gli stati di equilibrio da due equazioni di stato
+    \begin{equation}
+        \begin{cases}
+            pV=kNT \\
+            S=c_VNk\log{T}+Nl\log{V}+C
+        \end{cases}
+    \end{equation}
+    \item le due equazioni di stato descrivono una superficie bidimensionale: le due variabili scelte per determinare lo stato sono dette ``di controllo'' e le altre due ``di risposta'';
+    \item se $U=U(S,V)$ allora
+    \begin{equation}
+        TdS-pdV=\frac{\partial U}{\partial V}dV+\frac{\partial U}{\partial S}dS,
+    \end{equation}
+    da cui
+    \begin{equation}
+        \begin{cases}
+            p=-\dfrac{\partial U}{\partial V} \\[1ex]
+            T= \dfrac{\partial U}{\partial S};
+        \end{cases}
+    \end{equation}
+    \item ma queste equazioni non hanno la forma desiderata $S=S(V,T),\,p=p(V,T)$, quindi si scrive $SdT+pdV=d(ST-U)=-dA$, e se $A=A(V,T)$ allora
+    \begin{equation}
+        \begin{cases}
+            p= -\dfrac{\partial A}{\partial V} \\[1ex]
+            S= -\dfrac{\partial A}{\partial T},
+        \end{cases}
+    \end{equation}
+    dove $A$ è l'energia libera di Helmoltz;
+    \item per una gas ideale si ha $A=c_VNkT(1-\log{T})-NkT\log{T}$;
+    \item se si usano come variabili di controllo $(p,T)$ o $(p,S)$ le equazioni di stato si ottengono dalle funzione entalpia $F=F(p,T)$ e energia libera di Gibss $G=G(p,S)$: le funzioni $F,U,G,A$ sono detti potenziali termodinamici.
+\end{itemize}
+\subsection{Teorema di Liouville e di Birkhoff, misura e ipotesi ergodica, ensemble microcanonico: entropia e temperatura}
+\begin{itemize}
+    \item Teorema di Liouville: il flusso di un campo hamiltoniano conserva il volume nella sua forma canonica, $\text{Vol}(A)=\phi_t({\text{Vol}(A)}),\,\forall t,\,\forall A$, dove
+    \begin{equation}
+        \text{Vol})(A)=\int_{A}dq^1\wedge\cdots dp_n.
+    \end{equation}
+    Infatti in $T^*Q$ dotato di $\omega$ la 2n-forma $\frac{1}{n!}\omega^n$ coincide con la forma volume nell'integrale per ogni sistema di coordinate canoniche;
+    \item Definizione di media temporale: dato un flusso di trasformazioni sullo spazio delle fase $\Gamma$ dotato di una misura $\mu$ e un dato iniziale $x_0$ su cui è basata la curva integrale $x=x(t;x_0)$ la media temporale di una funzione $f:\Gamma\to\mathbb{R}$ è
+    \begin{equation}
+        \Bar{f}=\lim_{T\to\infty}\int_0^Tf(x(t;x_0))dt;
+    \end{equation}
+    \item Teorema di Birkhoff:
+    \begin{enumerate}
+        \item La media temporale di una funzione $f$ esiste per quasi tutti i dati iniziali $x_0$;
+        \item $\int_{\Gamma}fd\mu=\int_{\Gamma}\Bar{f}d\mu,\,\forall x_0$;
+    \end{enumerate}
+    \item definizione di misura ergodica: una misura $\mu$ invariante per un flusso $\phi_t$ si dice ergodica se vale almeno una di queste proprietà:
+    \begin{enumerate}
+        \item se $A$ è una regione misurabile invariante sotto $\phi_t$, allora $\mu(A)=0$ oppure $\mu(A)=\mu(\Gamma)$;
+        \item per ogni funzione integrali $f$, $\Bar{f}$ è costante;
+        \item il tempo di permanenza in una regione misurabile $A$ è $\frac{\text{Vol}(A)}{\text{Vol}(\Gamma)}$;
+        \item vale che $\langle f\rangle=\Bar{f}$, ovvero
+        \begin{equation}
+            \Bar{f}=\lim_{T\to\infty}\int_0^Tf(x(t;x_0))dt=\frac{1}{\text{Vol}(\Gamma)}\int_{\Gamma}fd\mu;
+        \end{equation}
+    \end{enumerate}
+    \item tramite l'ensemble microcanonico si introduce l'interazione tra le molecole: l'ipotesi di equiprobabilità si basa su un sistema ergodico, ma se le molecole non interagiscono, questo non può esserlo;
+    \item si ipotizza pertanto un'hamiltoniana somma di $N$ termini e con termini di interazione;
+    \item un sola ipotesi: sistema isolato definito da $H(q_A^\lambda,p_\lambda^A)$ autonoma;
+    \item la misura che descrive il macrostato deve essere descritta da una densità constante su $\Sigma_E$ tale che ogni insieme misurabile che non intersechi $\Sigma_E$ abbia misura nulla;
+    \item si definisce il volume microcanonica
+    \begin{equation}
+        \text{Vol}(\Sigma_E)=\lim_{\epsilon\to0}\frac{1}{\epsilon}\bigg[\int_{M_{E+\epsilon}}dq^1\wedge\cdots dp_n-\int_{M_E}dq^1\wedge\cdots dp_n\bigg],
+    \end{equation}
+    dove $M_E$ è la regione dello spazio della fasi tale che $H\le E$, di cui $\Sigma_E$ è il bordo se $H$ è inferiormente limitata;
+    \item per ogni funzione $F$ su $\Gamma$ la media di enseble microcanonica è
+    \begin{equation}
+        \langle F\rangle_E=\frac{1}{\text{Vol}(\Sigma_E)}\lim_{\epsilon\to0}\frac{1}{\epsilon}\bigg[\int_{M_{E+\epsilon}}Fdq^1\wedge\cdots dp_n-\int_{M_E}Fdq^1\wedge\cdots dp_n\bigg];
+    \end{equation}
+    \item le definizioni di entropia
+    \begin{equation}
+        \begin{cases}
+            S=k\log{\text{Vol}(\Sigma_E)},\quad(Boltzmann)\\
+            S=k\log{\text{Vol}(M_E)},\quad(Gibbs)
+        \end{cases}
+    \end{equation}
+    sono equivalenti per il limite termodinamico;
+    \item considerando due sistemi isolati rispettivamente a energia $E_1$ e $E_2$, dopo averli messi a contatto, tramite la definizione di entropia si ricava la definizione di temperatura microcanonica come
+    \begin{equation}
+        \frac{\partial S}{\partial E}=\frac{1}{T}.
+    \end{equation}
+\end{itemize}
+\subsection{Ensemble canonico: energia libera di Helmoltz e deduzione delle equazioni di stato}
+\begin{itemize}
+    \item La differenza dell'ensemble canonico con quello microcanonico sta nel fatto che nel primo si discute di sistemi non isolati, in particolare di sistemi in equilibrio con un termostato alla temperatura costante $T$;
+    \item il sistema gas + termostato è descritto dall'ensemble microcanonico, ma il sistema del solo gas no, infatti non si ha nessuna informazione sul microstato in cui si trova il gas;
+    \item la probabilità di un microstato del gas con energia $E_1$ è data dal volume $\Sigma_{E-E_1}$ di tutti i microstati del termostato con energia $E-E_1$;
+    \item questo volume si può trovare tramite la definizione di entropia
+    \begin{equation}
+        S_2(E-E_1)\approx S_2(E)-E_1\frac{\partial S_2}{E_2}\bigg|_{E_2=E}=S_2(E)-\frac{E_1}{T},
+    \end{equation}
+    da cui
+    \begin{equation}
+        \begin{cases}
+            \text{Vol}(\Sigma_{E-E_1})=C\exp\bigg(\dfrac{1}{k}\bigg(S_2(E)-\frac{E_1}{T}\bigg)\bigg) \\
+            \rho(q^\lambda_A,p_\lambda^A)=C\exp\bigg(-\dfrac{E_1}{kT}\bigg)=C\exp\bigg(-\dfrac{H(q^\lambda_A,p_\lambda^A)}{kT}\bigg),
+        \end{cases}
+    \end{equation}
+    dove $\rho$ è la densità di probabilità di trovare il gas in un dato miscrostato di energia $E_1$;
+    \item per ogni osservabile $F$ in $\Gamma$ la media di ensemble canonica è
+    \begin{equation}
+        \langle F\rangle_T=\frac{1}{\mathcal{Z}}\int_{\Gamma}F(q^\lambda_A,p_\lambda^A)e^{-\frac{1}{kT}H(q^\lambda_A,p_\lambda^A)}dq^1_1\cdots dp_n^N,
+    \end{equation}
+    dove la funzione di partizione canonica $\mathcal{Z}$ è
+    \begin{equation}
+        \mathcal{Z}=\int_{\Gamma}e^{-\frac{1}{kT}H(q^\lambda_A,p_\lambda^A)}dq^1_1\cdots dp_n^N;
+    \end{equation}
+    \item se si suppone che l'hamiltoniana sia somma di $N$ termini indipendenti e della stessa forma si ha $\mathcal{Z}=Z^N$ e
+    \begin{equation}
+        \langle F\rangle_T=\frac{Z^{N-1}}{\mathcal{Z}}\int_{\mathcal{F}}fq^\lambda_A,p_\lambda^A)e^{-\frac{1}{kT}h(q^\lambda_A,p_\lambda^A)}dq^1_1\cdots dp_n^N,
+    \end{equation}
+    ritrovando l'espressione di Maxwell-Boltzmann;
+    \item si modificano di conseguenza anche
+    \begin{equation}
+        \begin{cases}
+            U=\langle H\rangle_T=-N\dfrac{\partial}{\partial\beta}\log{Z}=-\dfrac{\partial}{\partial\beta}\log{\mathcal{Z}} \\
+            A=-kNT\log{Z}=-kT\log{\mathcal{Z}}.
+        \end{cases}
+    \end{equation}
+\end{itemize}
+\subsection{Teorema di equipartizione e calcolo del calore specifico per gas perfetti e reticoli cristallini}
+\begin{itemize}
+    \item Per osservare un comportamento termodinamico in un gas ideale questo deve essere contenuto in un volume finito, in caso contrario le quantità definite divergerebbero e il gas si espanderebbe senza raggiungere l'equilibrio;
+    \item si considera un reticolo tridimensionale di $N$ molecole connessi su cui agisce una forza elastica attrattiva: è contenuto in un volume finito ma dipende dalle forze di attrazione se tendono a $-\infty$ al crescere della distanza dai punti;
+    \item il potenziale elastico è quadratico nelle coordinate $q^\mu$: l'hamiltoniana è quadratica nelle $6N$ coordinate è può essere diagonalizzata dato che la matrice che rappresenta la forma quadratica $H$ è simmetrica;
+    \item l'hamiltoniana è 
+    \begin{equation}
+        H=\frac{1}{2}\sum_{i=1}^Ma_{(i)}(x^i)^2,\quad M=2nN;
+    \end{equation}
+    \item la funzione di partizione canonica è
+    \begin{equation}
+        \mathcal{Z}\propto\prod_{i=1}^M\int_{\mathbb{R}}e^{-\frac{\beta}{2}a_{(i)}x^2}dx=\prod_{i=1}^M\sqrt{\frac{2\pi}{a_{(i)}\beta}},
+    \end{equation}
+    da cui
+    \begin{equation}
+        \log{\mathcal{Z}}=\frac{1}{2}\sum_{i=1}^M[\log{2\pi}-\log{a_{(i)}}-\log{\beta}]=-\frac{M}{2}\log{(\beta)}+C;
+    \end{equation}
+    \item quindi l'energia interna del reticolo è
+    \begin{equation}
+        U=-\frac{\partial}{\partial\beta}\log{\mathcal{Z}}=\frac{M}{2}kT;
+    \end{equation}
+    \item Teorema di equipartizione: il valor medio di ciascun termine quadratico dell'hamiltoniana è uguale a $\frac{1}{2}kT$;
+    \item Dimostrazione:
+    \begin{align}
+        \langle\frac{a_{(i)}(x^i)^2}{2}\rangle_T=&\frac{1}{2}\frac{\int a_{(i)}x^2e^{-\beta a_{(i)}\frac{x^2}{2}}dx}{\int e^{-\beta a_{(i)}\frac{x^2}{2}}dx}=-\frac{\partial}{\partial\beta}\log{\bigg(\int e^{-\beta a_{(i)}\frac{x^2}{2}}dx\bigg)} \\
+        =&-\frac{\partial}{\partial\beta}\log{\sqrt{\frac{2\pi}{a_{(i)}}\beta}}=\frac{1}{2\beta}.
+    \end{align}
+\end{itemize}
+\section{Appendice}
+\label{cap:appendice}
+\begin{equation}
+    \begin{split}
+    S=&-k\sum\nolimits_i\bigg(\frac{e^{\beta E_i}}{Z(\beta)}\log{\frac{Ne^{-\beta E_i}}{Z(\beta)}}\bigg) \\
+    =&-kN\sum\nolimits_i\bigg(\frac{e^{\beta E_i}}{Z(\beta)}\bigg[\log{N}-\beta E_i-\log{Z(\beta)}\bigg]\bigg) \\
+    =&\underbrace{-kN\log{(N)}}_{\in\mathbb{R}}\frac{\cancel{\sum\nolimits_ie^{\beta E_i}}}{\cancel{Z(\beta)}}+kN\beta\frac{\sum\nolimits_iE_ie^{-\beta E_i}}{Z(\beta)}+kN\log{Z(\beta)}\frac{\cancel{\sum\nolimits_ie^{\beta E_i}}}{\cancel{Z(\beta)}} \\
+    =&kN\log{Z(\beta)}+k\beta\underbrace{N\frac{\sum\nolimits_iE_ie^{-\beta E_i}}{\sum\nolimits_je^{-\beta E_j}}}_{=U}=kN\log{Z}+k\beta U.
+\end{split}
+\end{equation}
+
+\end{document}
